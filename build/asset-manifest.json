@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0febfc2c.css",
+    "main.js": "/static/js/main.353f65bf.js",
+    "static/media/pic.jpeg": "/static/media/pic.f2369aab1cfebf7f3ad0.jpeg",
+    "static/media/CronusRound.otf": "/static/media/CronusRound.b5324f4d077611194a47.otf",
+    "static/media/Upload.png": "/static/media/Upload.ffe49f4e2c4d630f4b17.png",
+    "index.html": "/index.html",
+    "main.0febfc2c.css.map": "/static/css/main.0febfc2c.css.map",
+    "main.353f65bf.js.map": "/static/js/main.353f65bf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0febfc2c.css",
+    "static/js/main.353f65bf.js"
+  ]
+}
