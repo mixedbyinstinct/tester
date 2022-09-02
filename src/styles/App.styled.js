@@ -2,17 +2,49 @@ import styled from 'styled-components';
 import 'animate.css';
 import React from 'react';
 
+export const Jumbotron = styled.header`
+background-color: #140B38;
+color: #eeeced;
+border: none;
+border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;
+height: 60px;
+width: 99vw;
+text-align: center;
+padding: 3px;
+margin-bottom: 40px;
+position: fixed;
+top: 0;
+z-index: -6000;
+`;
+
 export const Container = styled.div`
 display: flex;
 flex-flow: column nowrap;
-align-content: center;
+
 align-items: center;
 justify-content: center;
-justify-items: center;
-flex-grow: 1;
+
+flex-shrink: 1;
 padding: 10px;
 & h1 {
 	animation: backInUp .5s;
+}
+`;
+
+export const Text = styled.div`
+margin-top: 5vh;
+& p {
+position: relative;
+}
+& p::before {
+content: "";
+position: absolute;
+top: 100%;
+width: 100%;
+left: 0;
+height: 3px;
+border-radius: 2px;
+background: linear-gradient(111.3deg, #818083 9.6%, #e6e6e6 93.6%);
 }
 `;
 
@@ -25,7 +57,6 @@ justify-content: center;
 align-items: center;
 position: fixed;
 top: 0px;
-background-color: HoneyDew;
 `;
 
 const MenuButtonContainer = styled.div`
@@ -39,6 +70,7 @@ animation: fadeInUpBig .5s;
 &:hover {
 	animation: rubberBand .5s;
 }
+
 `;
 
 const MenuButtonBar = styled.div`
@@ -46,7 +78,7 @@ width: 85%;
 height: 5px;
 margin-top: 4px;
 margin-bottom: 4px;
-background-color: Black;
+background-color: #F0921E;
 `;
 
 export const MenuButton = (props) => {
@@ -71,3 +103,18 @@ width: 70px;
 	animation: swing .5s;
 }
 `;
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

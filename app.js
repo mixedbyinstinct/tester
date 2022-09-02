@@ -21,7 +21,7 @@ app.use(bodyParser.json(), urlencodedParser);
 
 const url = 'mongodb://localhost:27018/personal-site-db';
 
-const PORT = 4000;
+const PORT = 443;
 const JWT_SECRET = "this-is-the-key";
 const PASSPORTSECRET = "this-is-the-key";
 

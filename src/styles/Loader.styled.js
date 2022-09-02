@@ -14,7 +14,7 @@ transform: translateX(96px);
 
 export const Gooey = styled.div`
 position: absolute;
-top: 29%;
+top: 50%;
 left: 50%;
 width: 142px;
 height: 40px;

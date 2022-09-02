@@ -19,6 +19,7 @@ overflow: scroll;
 	height: 225px;
 	width: 400px;
 	border-radius: 3px;
+    margin-top: 10vh;
 	animation: zoomInDown 1s;
 }
 `;

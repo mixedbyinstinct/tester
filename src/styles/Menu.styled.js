@@ -9,22 +9,25 @@ width: 100%;
 justify-content: flex-start;
 align-items: flex-start;
 flex-shrink: 4;
+background-color: #342B58;
 /*overflow: hidden;*/
 scroll: sticky;
 animation: fadeInDown .5s;
 `;
 
 export const NavButton = styled.button`
-background-color: Transparent;
-color: DarkSlateGray;
-font-family: system-ui;
-font-size: 14x;
+background-color: #F0921E;
+color: #F2F0F1;
+font-family: 'buttons';
+font-size: 14px;
+font-weight: bold;
 text-align: center;
 border: none;
+border-radius: 2px;
 /*height: 48px;*/
 &:hover {
-	background-color: DarkSlateGray;
-	color: LightSeaGreen;
+	background-color: Transparent;
+	color: #F0921E;
 	animation: swing .5s;
 }
 `;

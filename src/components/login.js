@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { LoginContainer, LoginButton } from '../styles/Login.styled';
 import axios from 'axios';
+import { Jumbotron, Container, Text } from '../styles/App.styled';
 
 const Login = () => {
     const history = useNavigate();
@@ -37,9 +38,12 @@ const Login = () => {
     }, [])
 
     return (
-        <LoginContainer>
+        <>
+        <Jumbotron>
 	    <h1>Login</h1>
-	    <p>Log in to uplod songs for review or see songs you uploaded:</p><br />
+        </Jumbotron><br />
+        <LoginContainer>
+        
         <form onSubmit={event => handleLogin(event)}>
 	    <p>{print}</p>
         <label>Email:</label>
@@ -50,10 +54,12 @@ const Login = () => {
 	    <br />
 <input required type="password" />
 	    <br />
-               <input required type="submit" value="Submit"/>
+               <input required type="submit" value="Log In"/>
                </form>
-</LoginContainer>   
+</LoginContainer> 
+</>
 )
 }
 
 export default Login;
+           

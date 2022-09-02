@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import 'animate.css';
 
-export const LoginContainer = styled.div`
+export const RegisterContainer = styled.div`
 display: flex;
 flex-flow: column nowrap;
 justify-content: center;
@@ -30,29 +30,17 @@ margin-bottom: 3px;
 font-family: 'buttons';
 font-size: 16px;
 border-radius: 8px;
-border: none;
 background-color: #F0921E;
 color: #F2F0F1;
 }
 & p {
 margin-top: 8px;
 }
-
+& form {
+margin-top: 18vh;
+}
 flex-shrink: 1;
 animation: backInUp .3s;
 padding: 10px;
 `;
 
-export const LoginButton = styled.button`
-height: 38px;
-width: 70px;
-background-color: Navy;
-color: Azure;
-font-family: 'text';
-font-size: 14pt;
-font-weight: bold;
-&:hover {
-animation: swing .5s;
-background-color: DarkSlateGray;
-}
-`;

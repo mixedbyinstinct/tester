@@ -9,6 +9,7 @@ import Menu from './components/menu.js';
 import Register from './components/register.js';
 import Login from './components/login.js';
 import Dashboard from './components/dashboard.js';
+import Credits from './components/credits.js';
 
 const App = () => {
     const [showMenu, setShowMenu] = useState(false);
@@ -19,20 +20,21 @@ const App = () => {
         <Router>
         <GlobalStyles />
         <Container>
-	    <TopBar>
+        <TopBar>
         <MenuButton onClick={displayMenu}>Menu</MenuButton>
-        {showMenu ? <Menu /> : <div />}
-	    </TopBar>
-<Routes>
-                                <Route exact path='/' element={< Home />}></Route>
-<Route exact path='/about' element={< About />}></Route>
-	    <Route exact path='/login' element={< Login />}></Route>
-	    <Route exact path='/register' element={< Register />}></Route>
-	    <Route exact path='/dashboard' element={< Dashboard />}></Route>
-</Routes>
-</Container>
-</Router>
-);
+{showMenu ? <Menu /> : <div />}
+    </TopBar>
+ <Routes>
+                <Route exact path='/' element={< Home />}></Route>
+ <Route exact path='/about' element={< About />}></Route>
+ <Route exact path='/login' element={< Login />}></Route>
+ <Route exact path='/register' element={< Register />}></Route>
+ <Route exact path='/dashboard' element={< Dashboard />}></Route>
+ <Route exact path='/credits' element={ < Credits /> }></Route>
+ </Routes>
+ </Container>
+ </Router>
+ );
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

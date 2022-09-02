@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router';
 import React, { useEffect } from 'react';
-import { LoginContainer, LoginButton } from '../styles/Login.styled';
+import { RegisterContainer } from '../styles/Register.styled';
 import axios from 'axios';
+import { Jumbotron, Text } from '../styles/App.styled';
 
 const Register = () => {
     const history = useNavigate();
@@ -34,9 +35,17 @@ const Register = () => {
     }, [])
 
     return (
-        <LoginContainer>
+<>
+        
+<Jumbotron>
+
 	    <h1>Sign Up</h1>
-	    <p>Sign up below for access to priority mixing services:</p><br />
+      
+        </Jumbotron><br />
+                <RegisterContainer>
+          <Text>
+	    <p>Sign up below for access to priority mixing services:</p>
+        </Text>
         <form onSubmit={event => handleRegister(event)}>
         <label>Email:</label>
 	    <br />
@@ -52,8 +61,9 @@ const Register = () => {
 	    <br />
                <input required type="submit" value="Register"/>
                </form>
-</LoginContainer>   
-)
+</RegisterContainer>  
+</>
+);
 }
 
 export default Register;
