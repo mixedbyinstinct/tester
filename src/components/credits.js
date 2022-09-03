@@ -1,4 +1,4 @@
-import React from 'react';
+    import React, { useState, useEffect } from 'react';
 import { Jumbotron } from '../styles/App.styled';
 import { CreditContainer, ArtGrid, ArtRow, ArtBox, Overlay, CreditList
  } from '../styles/Credits.styled';
@@ -9,7 +9,25 @@ import four from './4.jpeg';
 import five from './5.jpeg';
 import six from './6.jpeg';
 
+import axios from 'axios';
+
 const Credits = () => {
+    const [tableData, setTableData] = useState([]);
+
+    useEffect(() => {
+        axios.get("/table").then(({data}) => setTableData(data)); 
+    })
+    function renderTableData() {
+            return tableData.map((credit, index) => {
+                const { _id, name, activity } = credit;
+                return (
+                    <tr key={_id}>
+                    <td>{name}</td>
+                    <td>{activity}</td>
+                   </tr>
+                );
+            })
+    }
     return (
         <>
         <Jumbotron>
@@ -69,26 +87,7 @@ const Credits = () => {
      </tr>
 </thead>
 <tbody>
-    <tr>
-    <td>Tootie Raww</td>
-    <td>Both</td>
-   </tr>
-   <tr>
-        <td>Boosie</td>
-         <td>Both</td>
-</tr>
-<tr>
-        <td>Lil Keed</td>
-         <td>Recorded</td>
-</tr>
-<tr>
-        <td>Calboy</td>
-         <td>Mixed</td>
-</tr>
-<tr>
-        <td>Slimelife Shawty</td>
-         <td>Recorded</td>
-</tr>
+        {renderTableData()}
 </tbody>
 </CreditList>
 </CreditContainer>

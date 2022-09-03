@@ -51,13 +51,13 @@ var storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
         if(file.mimetype == 'audio/mpeg' || file.mimetype == 'audio/mp4' || file.mimetype == 'audio/x-wav') {
-          cb(null, file.originalname);
-      } else {
-          return req.res.json({
+            cb(null, file.originalname);
+        } else {
+            return req.res.json({
               successfulUpload: false,
               message: 'Only Audio Files Supported By This Uploader, Try Again'
           })
-      }
+        }
     }
 })
 var upload = multer({ storage: storage });
@@ -178,30 +178,45 @@ app.post("/findsongs", (req, res) => {
     MongoClient.connect(url, async function(err, db) {
 
         if(err) return res.json({
-                searchSucceeded: false,
-                message: err
-            });
+            searchSucceeded: false,
+            message: err
+        });
         let dbo = db.db('personal-site-db');
         var songArray = await dbo.collection("songs").find().toArray();
-	    console.log(songArray);
+        console.log(songArray);
 
-	    let songList = [];
+        let songList = [];
 
-	    for (i in 0..songArray.length) {
-		    songList.push(songArray[i].title);
-	    }
+        for (i in 0..songArray.length) {
+            songList.push(songArray[i].title);
+        }
 
-	    console.log(songList);
+        console.log(songList);
 
-            res.json({
-                    searchSucceeded: true,
-                    songs: songList,
-                });
+        res.json({
+            searchSucceeded: true,
+            songs: songList,
+        });
         db.close();
-	})
+    })
+})
+
+app.get("/table", (req, res) => {
+    MongoClient.connect(url, async function(err, db) {
+
+        if(err) console.log(err);
+
+        let dbo = db.db('personal-site-db');
+        let table = await dbo.collection("table").find()
+       .toArray();
+        console.log(table);
+
+        res.send(table);
+
+        db.close();
     })
 
-
+})
 
 
 app.get("/reversename", (req, res) => {
