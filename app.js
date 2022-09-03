@@ -53,11 +53,15 @@ var storage = multer.diskStorage({
         if(file.mimetype == 'audio/mpeg' || file.mimetype == 'audio/mp4' || file.mimetype == 'audio/x-wav') {
             cb(null, file.originalname);
         } else {
+<<<<<<< HEAD
           return req.res.json({
+=======
+            return req.res.json({
+>>>>>>> 23a21aac1a867213f2cafc07f1b8a905cefffec9
               successfulUpload: false,
               message: 'Only Audio Files Supported By This Uploader, Try Again'
           })
-      }
+        }
     }
 })
 var upload = multer({ storage: storage });
@@ -194,9 +198,15 @@ app.post("/findsongs", (req, res) => {
         console.log(songList);
 
         res.json({
+<<<<<<< HEAD
                 searchSucceeded: true,
                 songs: songList,
             });
+=======
+            searchSucceeded: true,
+            songs: songList,
+        });
+>>>>>>> 23a21aac1a867213f2cafc07f1b8a905cefffec9
         db.close();
     })
 })
@@ -204,17 +214,18 @@ app.post("/findsongs", (req, res) => {
 app.get("/table", (req, res) => {
     MongoClient.connect(url, async function(err, db) {
 
-       if(err) console.log(err);
+        if(err) console.log(err);
 
-       let dbo = db.db('personal-site-db');
-       let table = await dbo.collection("table").find()
-	    .toArray();
-         console.log(table);
+        let dbo = db.db('personal-site-db');
+        let table = await dbo.collection("table").find()
+       .toArray();
+        console.log(table);
 
-    res.send(table);
+        res.send(table);
 
-       db.close();
-   })
+        db.close();
+    })
+
 
 })
 
