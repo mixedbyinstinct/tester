@@ -182,22 +182,13 @@ app.post("/findsongs", (req, res) => {
             message: err
         });
         let dbo = db.db('personal-site-db');
-        var songArray = await dbo.collection("songs").find().toArray();
+        let songArray = await dbo.collection("songs").find().toArray();
         console.log(songArray);
 
-        let songList = [];
-
-        for (i in 0..songArray.length) {
-            songList.push(songArray[i].title);
-        }
-
-        console.log(songList);
-
         res.json({
-
-                searchSucceeded: true,
-                songs: songList,
-            });
+            searchSucceeded: true,
+            songs: songArray
+        });
         db.close();
     })
 })
@@ -256,4 +247,8 @@ app.get("/quote", (req, res) => {
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }).then((res) => {
     app.listen(PORT, () => console.log('server started at port ' + PORT));
 }).catch(err => console.log(err));
+
+
+
+
 
