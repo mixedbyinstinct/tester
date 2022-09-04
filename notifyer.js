@@ -1,11 +1,11 @@
 const chokidar = require('chokidar');
 const spawn = require('child_process').spawn;
 
-const watcher = chokidar.watch('uploads', {ignored: /^\./, persistent: true});
+const watcher = chokidar.watch('uploads', {persistent: true});
 
-watcher.on('add', (path) => {
+watcher.on('add', ( 
+) => {
     let logOut;
-    console.log(path, ' has been added');
     let process = spawn('python', ['mail.py']);
 
     process.stdout.on('data', (data) => {
