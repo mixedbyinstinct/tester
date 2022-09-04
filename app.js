@@ -253,7 +253,7 @@ MongoClient.connect(url, function(err, db) {
         let dbo = db.db('personal-site-db');
         let watchCursor = dbo.collection("songs").watch();
 
-        while(!watchCursor.isClosed()) {
+        while(!watchCursor.isClosed) {
             let next = watchCursor.tryNext();
             while(next !== null) {
                 const process = spawn('python', ['mail.py']);
