@@ -244,33 +244,6 @@ app.get("/quote", (req, res) => {
     });
 })
 
-MongoClient.connect(url, function(err, db) {
-    let log;
-    try {
-        if(err) {
-            throw(err);
-        }
-        let dbo = db.db('personal-site-db');
-        let watchCursor = dbo.collection("songs").watch();
-
-        while(!watchCursor.isClosed) {
-            let next = watchCursor.tryNext();
-            while(next !== null) {
-                const process = spawn('python', ['mail.py']);
-                process.stdout.on('data', (data) => {
-                    test = data.toString();
-                })
-                process.stdout.on('end', function() {
-                    console.log(test);
-                })
-                next = watchCursor.tryNext();
-            }
-        }
-
-    } catch (err) {
-        console.log(err);
-    }
-})
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }).then((res) => {
     app.listen(PORT, () => console.log('server started at port ' + PORT));
