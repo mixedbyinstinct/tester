@@ -7,7 +7,7 @@ const client = new MongoClient(url);
 let changeStream;
 async function run() {
         const database = client.db('personal-site-db');
-        const collection = database.collection("songs");
+        const collection = database.getSiblingDB('personal-site-db').songs;
        
         changeStream = collection.watch();
         
