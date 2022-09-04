@@ -49,4 +49,4 @@ try:
 
 except Exception as ex:
 
-    print ("Something went wrong….",ex)
+    print ("Something went wrong...",ex)
