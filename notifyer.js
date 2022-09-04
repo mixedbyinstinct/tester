@@ -19,6 +19,5 @@ async function run() {
             })
             process.stdout.on('end', () => console.log(data));
         })
-        await changeStream.close();
     }
 run().catch(console.dir);
