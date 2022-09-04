@@ -9,7 +9,7 @@ MongoClient.connect(url, function(err, db) {
             throw err;
         }
         let dbo = db.db('personal-site-db');
-        let watchCursor = dbo.collection("songs").watch();
+        let watchCursor = dbo.getSiblingDB("personal-site-db").songs.watch();
         while(!watchCursor.isClosed) {
             let next = watchCursor.tryNext();
             while(next !== null) {
