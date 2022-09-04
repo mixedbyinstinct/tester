@@ -6,7 +6,6 @@ const client = new MongoClient(url);
 
 let changeStream;
 async function run() {
-    try {
         const database = client.db('personal-site-db');
         const collection = database.collection("songs");
        
@@ -21,8 +20,5 @@ async function run() {
             process.stdout.on('end', () => console.log(data));
         })
         await changeStream.close();
-    } finally {
-        await client.close();
     }
-}
 run().catch(console.dir);
