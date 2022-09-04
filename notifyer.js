@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const spawn = require('child-process').spawn;
+const spawn = require('child_process').spawn;
 const url = 'mongodb://localhost:27018/personal-site-db';
 
 MongoClient.connect(url, function(err, db) {
