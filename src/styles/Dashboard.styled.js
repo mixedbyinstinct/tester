@@ -16,6 +16,7 @@ color: #020106;
 	width: 150px;
 	height: 36px;
 	font-size: 18px;
+	margin-top: 5vh;
 	border-radius: 2px;
 	border: 1px solid DarkSlateGray;
 	font-family: 'text';
