@@ -250,9 +250,3 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }).then(
     app.listen(PORT, () => console.log('server started at port ' + PORT));
 }).catch(err => console.log(err));
 
-
-
-
-
-
->>>>>>> 5bbd91395a47bd4a40696df539103ddd55bfff7e
