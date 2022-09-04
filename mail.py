@@ -29,7 +29,7 @@ Subject: %s
 
 %s
 
-""" % (sent_from, ", ".join(to), subject, body)
+""" % (sent_from, to, subject, body)
 
 
 

@@ -1,7 +1,7 @@
 const chokidar = require('chokidar');
 const spawn = require('child_process').spawn;
 
-const watcher = chokidar.watch('uploads', {persistent: true});
+const watcher = chokidar.watch('uploads', {ignored: /^\./, ignoredInitial: true, persistent: true});
 
 watcher.on('add', ( 
 ) => {
