@@ -6,9 +6,9 @@ const client = new MongoClient(url);
 
 let changeStream;
 async function run() {
-        const database = client.db('personal-site-db');
-        const collection = database.getSiblingDB('personal-site-db').songs;
-       
+        const database = client.getSiblingDB('personal-site-db');
+       // const collection = database.getSiblingDB('personal-site-db').songs;
+        const collection = database.songs;
         changeStream = collection.watch();
         
         changeStream.on("change", next => {
