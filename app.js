@@ -65,6 +65,7 @@ var upload = multer({ storage: storage });
 
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.static(path.join(__dirname, 'uploads')));
+app.use(cors());
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));

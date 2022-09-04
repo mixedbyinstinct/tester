@@ -1,0 +1,7 @@
+{
+    "scm.alwaysShowActions": true,
+    "scm.alwaysShowRepositories": true,
+    "scm.diffDecorationsGutterPattern": {
+        "added": true
+    }
+}
