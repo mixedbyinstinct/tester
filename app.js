@@ -50,12 +50,12 @@ var storage = multer.diskStorage({
         cb(null, 'uploads')
     },
     filename: function (req, file, cb) {
-        if(file.mimetype == 'audio/mpeg' || file.mimetype == 'audio/mp4' || file.mimetype == 'audio/x-wav') {
+        if(file.mimetype == 'application/zip' || file.mimetype == 'audio/octet-stream' || file.mimetype == 'application/x-zip-compressed' || file.mimetype == 'multipart/x-zip') {
             cb(null, file.originalname);
         } else {
             return req.res.json({
               successfulUpload: false,
-              message: 'Only Audio Files Supported By This Uploader, Try Again'
+              message: 'Only .zip Files Supported By This Uploader, Try Again'
           })
         }
     }
