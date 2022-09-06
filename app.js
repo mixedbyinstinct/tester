@@ -1,14 +1,6 @@
-const path = require('path');
-const bcrypt = require('bcrypt');
-const express = require('express');
-const mongoose = require('mongoose');
-const jwt = require('jsonwebtoken');
-const User = require ('./models/userModel');
-const songModel = require('./models/songModel');
-const multer = require('multer');
-const fs = require('fs');
-const MongoClient = require('mongodb').MongoClient;
 
+<<<<<<< HEAD
+=======
 let app = express();
 
 const cors = require('cors');
@@ -74,6 +66,9 @@ app.get("/", (req, res) => {
 app.post("/register", async (req, res) => {
     const user = req.body;
     console.log(user);
+    if req.body.password.includes(/\s/) {
+        res.json({message: 'whitespace not allowed in passwords'});
+    }
     const takenUsername = await User.findOne({username: user.username})
     const takenEmail = await User.findOne({email:
                                            user.email})
@@ -253,3 +248,5 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }).then(
 
 
 
+
+>>>>>>> 5bbd91395a47bd4a40696df539103ddd55bfff7e
