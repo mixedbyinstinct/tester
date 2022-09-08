@@ -3,11 +3,11 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const MongoClient = require('mongodb').MongoClient;
-const  jwt = require('jsonwebtoken');
+const  jwt = require("jsonwebtoken");
 const multer = require('multer');
 const bcrypt = ('bcrypt');
 const fs = require('fs');
-const User = require ('models/userModel');
+const User = require ('./models/userModel.js');
 let app = express();
 
 const cors = require('cors');
@@ -73,9 +73,9 @@ app.get("/", (req, res) => {
 app.post("/register", async (req, res) => {
     const user = req.body;
     console.log(user);
-    if (req.body.password.includes(/\s/)) {
-        res.json({message: 'whitespace not allowed in passwords'});
-    }
+   // if (req.body.password.includes(/\s/)) {
+     //   res.json({message: 'whitespace not allowed in passwords'});
+    //}
     const takenUsername = await User.findOne({username: user.username})
     const takenEmail = await User.findOne({email:
                                            user.email})
@@ -106,8 +106,7 @@ app.post("/login", (req, res) => {
                 message: "Nah Bruh"
             })
         }
-        bcrypt.compare(userLoggingIn.password, dbUser.password)
-            .then(isCorrect => {
+        bcrypt.compare(userLoggingIn.password, dbUser.password).then(isCorrect => {
             if(isCorrect) {
                 const payload = {
                     id: dbUser._id,
