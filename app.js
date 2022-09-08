@@ -1,6 +1,12 @@
 
-<<<<<<< HEAD
-=======
+const express = require('express');
+const path = require('path');
+const mongoose = require('mongoose');
+const MongoClient = require('mongodb').MongoClient;
+const  jwt = require('jsonwebtoken');
+const multer = require('multer');
+const bcrypt = ('bcrypt');
+const fs = require('fs');
 let app = express();
 
 const cors = require('cors');
@@ -66,7 +72,7 @@ app.get("/", (req, res) => {
 app.post("/register", async (req, res) => {
     const user = req.body;
     console.log(user);
-    if req.body.password.includes(/\s/) {
+    if (req.body.password.includes(/\s/)) {
         res.json({message: 'whitespace not allowed in passwords'});
     }
     const takenUsername = await User.findOne({username: user.username})
