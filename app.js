@@ -7,6 +7,7 @@ const  jwt = require('jsonwebtoken');
 const multer = require('multer');
 const bcrypt = ('bcrypt');
 const fs = require('fs');
+const User = require ('models/userModel');
 let app = express();
 
 const cors = require('cors');
